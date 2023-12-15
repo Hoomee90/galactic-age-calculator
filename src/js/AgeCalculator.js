@@ -1,7 +1,7 @@
 export default class AgeCalculator {
   constructor(age) {
     this.age = parseInt(age);
-    this.planetModifiers = new Map([[`mercury`, 0.24], [`venus`, 0.62], [`earth`, 1]]);
+    this.planetModifiers = new Map([[`mercury`, 0.24], [`venus`, 0.62], [`earth`, 1], [`mars`, 1.88], [`jupiter`, 11]]);
   }
 
   getPlanetMod(planet) {
@@ -18,6 +18,6 @@ export default class AgeCalculator {
 
     const planetMod = this.getPlanetMod(planetInput);
 
-    return this.age * planetMod;
+    return this.age / planetMod;
   }
 }
