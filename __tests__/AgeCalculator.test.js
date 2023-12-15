@@ -16,6 +16,11 @@ describe(`AgeCalculator`, () => {
     expect(ageCalculator.age).toEqual(18);
   });
 
+  test(`getPlanetMod should return the proper modifier for the inputted planet name or num`, () => {
+    expect(ageCalculator.getPlanetMod(`earth`)).toEqual(1);
+    expect(ageCalculator.getPlanetMod(0)).toEqual(1);
+  });
+
   test(`newAge should replace the age property with something new`, () => {
     ageCalculator.newAge(413);
     expect(ageCalculator.age).toEqual(413);
