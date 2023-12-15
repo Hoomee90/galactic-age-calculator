@@ -20,8 +20,8 @@ export default class AgeCalculator {
     return this.age / planetMod;
   }
 
-  ageDifference(ageInput, planet = `earth`) {
-    const difference = Math.abs(ageInput - this.age);
+  yearsUntil(ageInput, planet = `earth`) {
+    const difference = ageInput - this.age
     const planetMod = this.getPlanetMod(planet);
 
     return difference / planetMod;

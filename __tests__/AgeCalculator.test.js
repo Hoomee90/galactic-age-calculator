@@ -55,12 +55,12 @@ describe(`getAge`, () => {
   });
 });
 
-describe(`ageDifference`, () => {
+describe(`yearsUntil`, () => {
   
   ageCalculator.planetModifiers.forEach((modifier, planet) => {
     test(`should properly return difference between the inputted age and age for ${planet}` , () => {
-      expect(ageCalculator.ageDifference(14, planet)).toBeCloseTo((4 / modifier));
-      expect(ageCalculator.ageDifference(21, planet)).toBeCloseTo((3 / modifier));
+      expect(ageCalculator.yearsUntil(14, planet)).toBeCloseTo(-(4 / modifier));
+      expect(ageCalculator.yearsUntil(21, planet)).toBeCloseTo((3 / modifier));
     });
   });
 });
