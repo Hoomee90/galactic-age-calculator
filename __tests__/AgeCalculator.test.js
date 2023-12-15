@@ -29,8 +29,18 @@ describe(`AgeCalculator`, () => {
 
 describe(`getAge`, () => {
 
-  test(`should return age property value when given either 'earth' or 0` , () => {
-    expect(ageCalculator.getAge(`earth`)).toEqual(18);
+  test(`should return age property value properly modified when given either 'mercury' or 0` , () => {
+    expect(ageCalculator.getAge(`mercury`)).toEqual(18);
     expect(ageCalculator.getAge(0)).toEqual(18);
+  });
+
+  test(`should return age property value properly modified when given either 'venus' or 1` , () => {
+    expect(ageCalculator.getAge(`venus`)).toEqual(18);
+    expect(ageCalculator.getAge(1)).toEqual(18);
+  });
+
+  test(`should return age property value unchanged when given either 'earth' or 2` , () => {
+    expect(ageCalculator.getAge(`earth`)).toEqual(18);
+    expect(ageCalculator.getAge(2)).toEqual(18);
   });
 });
