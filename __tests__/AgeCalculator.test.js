@@ -35,8 +35,8 @@ describe(`getAge`, () => {
   });
 
   test(`should return age property value properly modified when given either 'venus' or 1` , () => {
-    expect(ageCalculator.getAge(`venus`)).toBeCloseTo(29);
-    expect(ageCalculator.getAge(1)).toBeCloseTo(29);
+    expect(ageCalculator.getAge(`venus`)).toBeCloseTo(29.032);
+    expect(ageCalculator.getAge(1)).toBeCloseTo(29.032);
   });
 
   test(`should return age property value unchanged when given either 'earth' or 2` , () => {
@@ -45,12 +45,20 @@ describe(`getAge`, () => {
   });
 
   test(`should return age property value unchanged when given either 'earth' or 2` , () => {
-    expect(ageCalculator.getAge(`mars`)).toBeCloseTo(9.5);
-    expect(ageCalculator.getAge(3)).toBeCloseTo(9.5);
+    expect(ageCalculator.getAge(`mars`)).toBeCloseTo(9.574);
+    expect(ageCalculator.getAge(3)).toBeCloseTo(9.574);
   });
 
   test(`should return age property value unchanged when given either 'earth' or 2` , () => {
-    expect(ageCalculator.getAge(`jupiter`)).toBeCloseTo(1.6);
-    expect(ageCalculator.getAge(4)).toBeCloseTo(1.6);
+    expect(ageCalculator.getAge(`jupiter`)).toBeCloseTo(1.636);
+    expect(ageCalculator.getAge(4)).toBeCloseTo(1.636);
+  });
+});
+
+describe(`ageDifference`, () => {
+
+  test(`should return difference between the inputted age and age property` , () => {
+    expect(ageCalculator.ageDifference(14)).toBe(4);
+    expect(ageCalculator.ageDifference(21)).toBe(3);
   });
 });
