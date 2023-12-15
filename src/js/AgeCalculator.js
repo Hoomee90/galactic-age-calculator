@@ -14,10 +14,16 @@ export default class AgeCalculator {
     this.age = parseInt(age);
   }
 
-  getAge(planetInput) {
-
-    const planetMod = this.getPlanetMod(planetInput);
+  getAge(planet) {
+    const planetMod = this.getPlanetMod(planet);
 
     return this.age / planetMod;
+  }
+
+  ageDifference(ageInput, planet = `earth`) {
+    const difference = Math.abs(ageInput - this.age);
+    const planetMod = this.getPlanetMod(planet);
+
+    return difference / planetMod;
   }
 }
