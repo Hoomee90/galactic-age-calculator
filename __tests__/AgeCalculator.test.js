@@ -1,6 +1,6 @@
 import AgeCalculator from "../src/js/AgeCalculator"
 
-let ageCalculator;
+let ageCalculator = new AgeCalculator(18);
 
   beforeEach(() => {
     ageCalculator = new AgeCalculator(18);
@@ -56,9 +56,11 @@ describe(`getAge`, () => {
 });
 
 describe(`ageDifference`, () => {
-
-  test(`should return difference between the inputted age and age property` , () => {
-    expect(ageCalculator.ageDifference(14)).toBe(4);
-    expect(ageCalculator.ageDifference(21)).toBe(3);
+  
+  ageCalculator.planetModifiers.forEach((modifier, planet) => {
+    test(`should properly return difference between the inputted age and age for ${planet}` , () => {
+      expect(ageCalculator.ageDifference(14, planet)).toBeCloseTo((4 / modifier));
+      expect(ageCalculator.ageDifference(21, planet)).toBeCloseTo((3 / modifier));
+    });
   });
 });
