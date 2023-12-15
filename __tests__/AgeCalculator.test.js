@@ -17,8 +17,8 @@ describe(`AgeCalculator`, () => {
   });
 
   test(`getPlanetMod should return the proper modifier for the inputted planet name or num`, () => {
-    expect(ageCalculator.getAge(`earth`)).toEqual(18);
-    expect(ageCalculator.getAge(2)).toEqual(18);
+    expect(ageCalculator.getPlanetMod(`earth`)).toEqual(1);
+    expect(ageCalculator.getPlanetMod(2)).toEqual(1);
   });
 
   test(`newAge should replace the age property with something new`, () => {
@@ -30,17 +30,27 @@ describe(`AgeCalculator`, () => {
 describe(`getAge`, () => {
 
   test(`should return age property value properly modified when given either 'mercury' or 0` , () => {
-    expect(ageCalculator.getAge(`mercury`)).toEqual(4.32);
-    expect(ageCalculator.getAge(0)).toEqual(4.32);
+    expect(ageCalculator.getAge(`mercury`)).toBeCloseTo(75);
+    expect(ageCalculator.getAge(0)).toBeCloseTo(75);
   });
 
   test(`should return age property value properly modified when given either 'venus' or 1` , () => {
-    expect(ageCalculator.getAge(`venus`)).toEqual(11.16);
-    expect(ageCalculator.getAge(1)).toEqual(11.16);
+    expect(ageCalculator.getAge(`venus`)).toBeCloseTo(29);
+    expect(ageCalculator.getAge(1)).toBeCloseTo(29);
   });
 
   test(`should return age property value unchanged when given either 'earth' or 2` , () => {
     expect(ageCalculator.getAge(`earth`)).toEqual(18);
     expect(ageCalculator.getAge(2)).toEqual(18);
+  });
+
+  test(`should return age property value unchanged when given either 'earth' or 2` , () => {
+    expect(ageCalculator.getAge(`mars`)).toBeCloseTo(9.5);
+    expect(ageCalculator.getAge(3)).toBeCloseTo(9.5);
+  });
+
+  test(`should return age property value unchanged when given either 'earth' or 2` , () => {
+    expect(ageCalculator.getAge(`jupiter`)).toBeCloseTo(1.6);
+    expect(ageCalculator.getAge(4)).toBeCloseTo(1.6);
   });
 });
