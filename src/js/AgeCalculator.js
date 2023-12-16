@@ -26,4 +26,10 @@ export default class AgeCalculator {
 
     return difference / planetMod;
   }
+
+  ageDifference(ageInput, planet = `earth`) {
+    const difference = this.yearsUntil(ageInput, planet);
+
+    return difference <= 0 ?  (`${Math.abs(difference)} ${planet} years have passed since you were ${ageInput} years old`) : (`you will turn ${ageInput} in ${Math.abs(difference)} ${planet} years`);
+  }
 }
