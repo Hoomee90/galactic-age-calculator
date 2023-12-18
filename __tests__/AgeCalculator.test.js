@@ -76,3 +76,27 @@ describe(`ageDifference`, () => {
     });
   });
 });
+
+describe(`numToLang`, () => {
+
+  test.each([
+    [0, "zero"],
+    [1, "one"],
+    [2.1, "two and a tenth"],
+    [3.2, "three and a fifth"],
+    [4.3, "four and a third"],
+    [5.4, "five and two fifths"],
+    [6.5, "six and a half"],
+    [7.6, "seven and three fifths"],
+    [8.7, "eight and seven tenths"],
+    [9.8, "nine and four fifths"],
+    [10.11, "ten and one tenth"],
+    [11.55, "eleven and a half"],
+    [21.66666, "twenty one and seven fifths"],
+    [100.123456, "one hundred"],
+    [413.55, "four hundred and thirteen"],
+    [1000, "many, many"]
+  ])("convert %f to natural language"), (input, expected) => {
+    expect(ageCalculator.numToLang(input)).toEqual(expected);
+  }
+});
