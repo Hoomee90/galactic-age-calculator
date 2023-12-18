@@ -56,10 +56,16 @@ describe(`getAge`, () => {
 });
 
 describe(`yearsUntil`, () => {
+
+  test(`should return difference between the inputted age and age if no planet is provided` , () => {
+    expect(ageCalculator.yearsUntil(14)).toBeCloseTo(-4);
+  });
   
   ageCalculator.planetModifiers.forEach((modifier, planet) => {
     test(`should properly return difference between the inputted age and age for ${planet}` , () => {
+
       expect(ageCalculator.yearsUntil(14, planet)).toBeCloseTo(-(4 / modifier));
+
       expect(ageCalculator.yearsUntil(21, planet)).toBeCloseTo((3 / modifier));
     });
   });
@@ -67,8 +73,15 @@ describe(`yearsUntil`, () => {
 
 describe(`ageDifference`, () => {
   
+  test(`should return difference between the inputted age and age in natural language if no planet is provided` , () => {
+
+    expect(ageCalculator.ageDifference(14)).toEqual(`4 earth years have passed since you were 14 years old`);
+
+    expect(ageCalculator.ageDifference(22)).toEqual(`you will turn 22 in 4 earth years`);
+  });
+
   ageCalculator.planetModifiers.forEach((modifier, planet) => {
-    test(`should properly return difference between the inputted age and age for ${planet}` , () => {
+    test(`should properly return difference between the inputted age and age for ${planet} in natural` , () => {
       
       expect(ageCalculator.ageDifference(14, planet)).toEqual(`${Math.abs((-4) / modifier)} ${planet} years have passed since you were 14 years old`);
 
