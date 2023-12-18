@@ -32,4 +32,37 @@ export default class AgeCalculator {
 
     return difference < 0 ?  (`${Math.abs(difference)} ${planet} years have passed since you were ${ageInput} years old`) : (`you will turn ${ageInput} in ${difference} ${planet} years`);
   }
+
+  numToLang(num) {
+    if (num >= 1000) {
+      return `many, many`
+    }
+
+    let separatedNum = Number((num)).toFixed(1).split(``);
+    const decimalIndex = separatedNum.indexOf(`.`);
+    let large = false;
+
+    if (decimalIndex !== -1) {
+      separatedNum.splice(decimalIndex, 1);
+      if (separatedNum.length === 2) {
+        separatedNum.unshift(`0`);
+      }
+    } else {
+      large = true;
+    }
+
+    const numWords = new Map ([
+      [0, ``],
+      [1, `one`],
+      [2, `two`],
+      [3, `three`],
+      [4, `four`],
+      [5, `five`],
+      [6, `six`],
+      [7, `seven`],
+      [8, `eight`],
+      [9, `nine`]
+    ])
+    return separatedNum;
+  }
 }
