@@ -29,8 +29,14 @@ export default class AgeCalculator {
 
   ageDifference(ageInput, planet = `earth`) {
     const difference = this.yearsUntil(ageInput, planet);
+    const naturalAge = this.numToLang(parseInt(ageInput));
+    const naturalDifference = this.numToLang(Math.abs(difference));
 
-    return difference < 0 ?  (`${Math.abs(difference)} ${planet} years have passed since you were ${ageInput} years old`) : (`you will turn ${ageInput} in ${difference} ${planet} years`);
+    if (difference < 0) {
+      return `${naturalDifference} ${planet} years have passed since you were ${naturalAge} years old`
+    } else {
+      return `you will turn ${naturalAge} in ${naturalDifference} ${planet} years`
+    }
   }
 
   numToLang(num) {
