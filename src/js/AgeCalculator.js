@@ -38,31 +38,9 @@ export default class AgeCalculator {
       return `many, many`
     }
 
-    let separatedNum = Number((num)).toFixed(1).split(``);
-    const decimalIndex = separatedNum.indexOf(`.`);
-    let large = false;
-
-    if (decimalIndex !== -1) {
-      separatedNum.splice(decimalIndex, 1);
-      if (separatedNum.length === 2) {
-        separatedNum.unshift(`0`);
-      }
-    } else {
-      large = true;
-    }
-
-    const numWords = new Map ([
-      [0, ``],
-      [1, `one`],
-      [2, `two`],
-      [3, `three`],
-      [4, `four`],
-      [5, `five`],
-      [6, `six`],
-      [7, `seven`],
-      [8, `eight`],
-      [9, `nine`]
-    ])
-    return separatedNum;
+    const units = [`zero`,`one`, `two`, `three`,`four`, `five`, `six`, `seven`,`eight`,`nine`];
+    const teens = [`ten`,`eleven`, `twelve`, `thirteen`,`fourteen`, `fifteen`, `sixteen`, `seventeen`,`eighteen`,`nineteen`];
+    const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    const decimals = ["a  tenth", "a fifth", "a third", "two fifths", "a half", "three fifths", "seven tenths", "four fifths", "nine tenths", "ninety"];
   }
 }
