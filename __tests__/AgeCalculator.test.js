@@ -73,19 +73,19 @@ describe(`yearsUntil`, () => {
 
 describe(`ageDifference`, () => {
   
-  test(`should return difference between the inputted age and age in natural language if no planet is provided` , () => {
+  test(`should return difference between the inputted age and age in natural language if no planet is provided in natural language` , () => {
 
-    expect(ageCalculator.ageDifference(14)).toEqual(`4 earth years have passed since you were 14 years old`);
+    expect(ageCalculator.ageDifference(14)).toEqual(`four earth years have passed since you were fourteen years old`);
 
-    expect(ageCalculator.ageDifference(22)).toEqual(`you will turn 22 in 4 earth years`);
+    expect(ageCalculator.ageDifference(22)).toEqual(`you will turn twenty two in four earth years`);
   });
 
   ageCalculator.planetModifiers.forEach((modifier, planet) => {
-    test(`should properly return difference between the inputted age and age for ${planet} in natural` , () => {
+    test(`should properly return difference between the inputted age and age for ${planet} in natural language` , () => {
       
-      expect(ageCalculator.ageDifference(14, planet)).toEqual(`${Math.abs((-4) / modifier)} ${planet} years have passed since you were 14 years old`);
+      expect(ageCalculator.ageDifference(14, planet)).toEqual(`${ageCalculator.numToLang(Math.abs((-4) / modifier))} ${planet} years have passed since you were fourteen years old`);
 
-      expect(ageCalculator.ageDifference(22, planet)).toEqual(`you will turn 22 in ${4 / modifier} ${planet} years`);
+      expect(ageCalculator.ageDifference(22, planet)).toEqual(`you will turn 22 in ${ageCalculator.numToLang(4 / modifier)} ${planet} years`);
     });
   });
 });
