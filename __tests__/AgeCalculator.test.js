@@ -94,6 +94,7 @@ describe(`numToLang`, () => {
 
   test.each([
     [0, "zero"],
+    [0.4, "two fifths"],
     [1, "one"],
     [2.1, "two and a tenth"],
     [3.2, "three and a fifth"],
@@ -103,13 +104,15 @@ describe(`numToLang`, () => {
     [7.6, "seven and three fifths"],
     [8.7, "eight and seven tenths"],
     [9.8, "nine and four fifths"],
-    [10.11, "ten and one tenth"],
-    [11.55, "eleven and a half"],
+    [10.11, "ten and a tenth"],
+    [11.55, "eleven and three fifths"],
     [13, "thirteen"],
-    [21.66666, "twenty one and seven fifths"],
-    [100.123456, "one hundred"],
+    [21.66666, "twenty one and seven tenths"],
+    [90.9, "ninety and nine tenths"],
+    [100.123456, "one hundred and a tenth"],
     [201, "two hundred and one"],
-    [413.55, "four hundred and thirteen"],
+    [720, "seven hundred and twenty"],
+    [413.612, "four hundred and thirteen and three fifths"],
     [1000, "many, many"]
   ])("should convert %f to natural language", (input, expected) => {
     expect(ageCalculator.numToLang(input)).toEqual(expected);
