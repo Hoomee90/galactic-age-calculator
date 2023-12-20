@@ -42,5 +42,26 @@ export default class AgeCalculator {
     const teens = [`ten`,`eleven`, `twelve`, `thirteen`,`fourteen`, `fifteen`, `sixteen`, `seventeen`,`eighteen`,`nineteen`];
     const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
     const decimals = ["a  tenth", "a fifth", "a third", "two fifths", "a half", "three fifths", "seven tenths", "four fifths", "nine tenths", "ninety"];
+
+    const convertLanguage = (num) => {
+      let words = ``;
+      if (num > 99) {
+        words += `${units[Math.floor(num / 100)]} hundred `;
+        num %= 100;
+        if (num) {
+          words += `and `;
+        }
+      }
+      if (num > 19) {
+        words += `${tens[Math.floor(num / 10)]} `;
+        num %= 10;
+      }
+      if (num >= 0) {
+        words += (num < 10) ? units[num] : teens[num - 10];
+      }
+      return words.trim();
+    }
+
+    return convertLanguage(parseInt(num))
   }
 }
