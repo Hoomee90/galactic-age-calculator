@@ -21,7 +21,7 @@ export default class AgeCalculator {
   }
 
   yearsUntil(ageInput, planet = `earth`) {
-    const difference = ageInput - this.age
+    const difference = ageInput - this.age;
     const planetMod = this.getPlanetMod(planet);
 
     return (difference / planetMod);
@@ -33,9 +33,9 @@ export default class AgeCalculator {
     const naturalDifference = this.numToLang(Math.abs(difference));
 
     if (difference < 0) {
-      return `${naturalDifference} ${planet} years have passed since you were ${naturalAge} years old`
+      return `${naturalDifference} ${planet} years have passed since you were ${naturalAge} years old`;
     } else {
-      return `you will turn ${naturalAge} in ${naturalDifference} ${planet} years`
+      return `you will turn ${naturalAge} in ${naturalDifference} ${planet} years`;
     }
   }
 
@@ -69,7 +69,7 @@ export default class AgeCalculator {
         words += (num < 10) ? units[num] : teens[num - 10];
       }
       return words.trim();
-    }
+    };
 
     let [integer, decimal] = num.toFixed(1).split(`.`);
 
@@ -78,9 +78,9 @@ export default class AgeCalculator {
 
     if (decimal) {
       if (words) {
-        words += ` and `
+        words += ` and `;
       }
-      words += `${decimals[parseInt(decimal) - 1]}`
+      words += `${decimals[parseInt(decimal) - 1]}`;
     }
 
     return words;

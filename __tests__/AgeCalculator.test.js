@@ -85,7 +85,7 @@ describe(`ageDifference`, () => {
       
       expect(ageCalculator.ageDifference(14, planet)).toEqual(`${ageCalculator.numToLang(Math.abs((-4) / modifier))} ${planet} years have passed since you were fourteen years old`);
 
-      expect(ageCalculator.ageDifference(22, planet)).toEqual(`you will turn 22 in ${ageCalculator.numToLang(4 / modifier)} ${planet} years`);
+      expect(ageCalculator.ageDifference(22, planet)).toEqual(`you will turn twenty two in ${ageCalculator.numToLang(4 / modifier)} ${planet} years`);
     });
   });
 });
