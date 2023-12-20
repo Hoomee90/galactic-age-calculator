@@ -1,8 +1,8 @@
-# _{Application Name}_
+# Galactic Age Calculator
 
 #### By **Samantha Callie**
 
-#### _{Brief description of application}_
+#### Proof of concept for a program that calculates your age in various planets' years
 
 ## Technologies Used
 
@@ -10,27 +10,20 @@
 * JS
 * Webpack
 * Jest
-* _{other stuff too}_
 
 ## Description
 
-_{I really hope you understand what a description is.}_
+This program has no UI, so users can't do anything at all. However, the source code contains methods for calculating one's age in the years of planets in the solar system. They can also see how many years ago or how many years until they were/will be a certain age, with the same options.
 
 ## Setup/Installation Requirements
 
 * Clone repository
 * Using your favorite command line console, run `npm run build` (requires npm) in the top level directory
-* Navigate to the newly-generated scr directory and open index.html
-* _and all_
-* _the other_
-* _instructions_
-
-_{awawawaw why do I need to spend so much effort writing the setup instructions just run it dunkass.}_
+* Look at the source code
 
 ## Known Bugs
 
-* _Any known issues_
-*  _go here_
+* There are no known bugs at this time
 
 ## License
 
