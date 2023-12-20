@@ -35,13 +35,16 @@ export default class AgeCalculator {
 
   numToLang(num) {
     if (num >= 1000) {
-      return `many, many`
+      return `many, many`;
+    }
+    if (num === 0) {
+      return `zero`;
     }
 
     const units = [`zero`,`one`, `two`, `three`,`four`, `five`, `six`, `seven`,`eight`,`nine`];
     const teens = [`ten`,`eleven`, `twelve`, `thirteen`,`fourteen`, `fifteen`, `sixteen`, `seventeen`,`eighteen`,`nineteen`];
     const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-    const decimals = ["a  tenth", "a fifth", "a third", "two fifths", "a half", "three fifths", "seven tenths", "four fifths", "nine tenths", "ninety"];
+    const decimals = ["a tenth", "a fifth", "a third", "two fifths", "a half", "three fifths", "seven tenths", "four fifths", "nine tenths", "ninety"];
 
     const convertLanguage = (num) => {
       let words = ``;
@@ -56,12 +59,24 @@ export default class AgeCalculator {
         words += `${tens[Math.floor(num / 10)]} `;
         num %= 10;
       }
-      if (num >= 0) {
+      if (num > 0) {
         words += (num < 10) ? units[num] : teens[num - 10];
       }
       return words.trim();
     }
 
-    return convertLanguage(parseInt(num))
+    let [integer, decimal] = num.toFixed(1).split(`.`);
+
+    let words = convertLanguage(parseInt(integer));
+    decimal = parseInt(decimal);
+
+    if (decimal) {
+      if (words) {
+        words += ` and `
+      }
+      words += `${decimals[parseInt(decimal) - 1]}`
+    }
+
+    return words;
   }
 }
